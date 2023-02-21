@@ -1,8 +1,13 @@
-package animals;
+package cage;
 
+import animals.Animal;
+import animals.LionComparator;
+import animals.Wolf;
+import animals.WolfComparator;
 import cage.AnimalCage;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 public class WolfCage implements AnimalCage {
@@ -49,12 +54,25 @@ public class WolfCage implements AnimalCage {
 
     @Override
     public Wolf getAnimalFromCage() {
-        Random random = new Random();
-        int randomWolfToGet = (int) (Math.random() * (this.wolves.size()));
-        Wolf randomWolf = this.wolves.get(randomWolfToGet);
-        this.wolves.remove(randomWolf);
-        System.out.println(randomWolf + "удален из клетки");
-        return randomWolf;
+        if (this.wolves == null) {
+            System.out.println("Клетка пуста");
+            return null;
+        } else {
+            Random random = new Random();
+            int randomWolfToGet = (int) (Math.random() * (this.wolves.size()));
+            Wolf randomWolf = this.wolves.get(randomWolfToGet);
+            this.wolves.remove(randomWolf);
+            System.out.println(randomWolf + "удален из клетки");
+            return randomWolf;
+        }
+
+    }
+    public void sortWolves(){
+        Collections.sort(wolves);
+    }
+
+    public void sortByAgeAndWeight(){
+        Collections.sort(wolves, new WolfComparator());
     }
 
 }

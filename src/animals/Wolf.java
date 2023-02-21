@@ -1,6 +1,6 @@
 package animals;
 
-public class Wolf extends Animal {
+public class Wolf extends Animal implements Comparable<Wolf> {
     private int angry;
     protected static final int MAX_WEIGHT = 100;
     protected static final String TYPE = "Wolf";
@@ -29,4 +29,15 @@ public class Wolf extends Animal {
     public String getType() {
         return TYPE;
     }
+
+    @Override
+    public int compareTo(Wolf o) {
+        if (this.age > o.age || (this.age == o.age && this.weight > o.weight)) {
+            return 1;
+        } else if (this.age < o.age || (this.age == o.age && this.weight < o.weight)) {
+            return -1;
+        }
+        return 0;
+    }
+
 }

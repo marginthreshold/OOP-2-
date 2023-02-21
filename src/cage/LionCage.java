@@ -1,8 +1,12 @@
-package animals;
+package cage;
 
+import animals.Animal;
+import animals.Lion;
+import animals.LionComparator;
 import cage.AnimalCage;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 public class LionCage implements AnimalCage {
@@ -54,11 +58,23 @@ public class LionCage implements AnimalCage {
 
     @Override
     public Lion getAnimalFromCage() {
-        Random random = new Random();
-        int randomLionToGet = (int) (Math.random() * (this.lions.size()));
-        Lion randomLion = this.lions.get(randomLionToGet);
-        this.lions.remove(randomLion);
-        System.out.println(randomLion + "удален из клетки");
-        return randomLion;
+        if (this.lions == null) {
+            System.out.println("Клетка пуста");
+            return null;
+        } else {
+            Random random = new Random();
+            int randomLionToGet = (int) (Math.random() * (this.lions.size()));
+            Lion randomLion = this.lions.get(randomLionToGet);
+            this.lions.remove(randomLion);
+            System.out.println(randomLion + "удален из клетки");
+            return randomLion;
+        }
+    }
+    public void sortLions(){
+        Collections.sort(lions);
+    }
+
+    public void sortByLionMane(){
+        Collections.sort(lions, new LionComparator());
     }
 }

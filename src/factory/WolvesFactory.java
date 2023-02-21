@@ -2,17 +2,11 @@ package factory;
 
 
 import animals.Wolf;
-import animals.WolfCage;
 
 import java.util.ArrayList;
 
 public class WolvesFactory {
-    public static void main(String[] args) {
-        ArrayList<Wolf> wolves = wolvesCollection(10);
-        WolfCage wolvesInCage = new WolfCage(wolves);
-        System.out.println(wolvesInCage);
-        wolvesInCage.getAnimalFromCage();
-    }
+
 
     public static int randomParam(int min, int max) {
         return (int) (Math.random() * (max - min)) + min;
