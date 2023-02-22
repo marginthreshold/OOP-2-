@@ -1,6 +1,6 @@
 package animals;
 
-public class Snake extends Animal {
+public class Snake extends Animal implements Comparable<Snake> {
     private int bodyLength;
     protected static final int MAX_WEIGHTS = 10;
     protected static final String TYPE = "Snake";
@@ -30,4 +30,10 @@ public class Snake extends Animal {
     }
 
 
+    @Override
+    public int compareTo(Snake o) {
+        if (this.bodyLength > o.bodyLength) return 1;
+        else if (this.bodyLength < o.bodyLength) return -1;
+        return 0;
+    }
 }

@@ -4,9 +4,9 @@ import animals.Animal;
 
 import java.util.ArrayList;
 
-public interface AnimalCage {
+public interface AnimalCage<T extends Animal> {
 
-    void addAnimalToCage(Animal animal);
+    void addAnimalToCage(T animal);
 
     void giveFoodToCage(int weightOfFood);
 

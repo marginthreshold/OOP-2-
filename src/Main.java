@@ -5,6 +5,7 @@ import cage.WolfCage;
 
 import java.util.ArrayList;
 
+import static animalUtils.AnimalUtils.sortAnimalByAge;
 import static factory.LionsFactory.lionsCollection;
 import static factory.WolvesFactory.wolvesCollection;
 
@@ -30,6 +31,7 @@ public class Main {
         wolvesInCage.sortByAgeAndWeight();
         System.out.println(wolvesInCage);
 
+        sortAnimalByAge(wolves);
 
     }
 }

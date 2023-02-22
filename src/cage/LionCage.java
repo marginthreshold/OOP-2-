@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
-public class LionCage implements AnimalCage {
+public class LionCage implements AnimalCage<Lion> {
     private int countLions;
     private int garbageVolume;
     private ArrayList<Lion> lions;
@@ -30,7 +30,7 @@ public class LionCage implements AnimalCage {
     }
 
     @Override
-    public void addAnimalToCage(Animal lion) {
+    public void addAnimalToCage(Lion lion) {
         lions.add((Lion) lion);
         countLions++;
         garbageVolume += 3;

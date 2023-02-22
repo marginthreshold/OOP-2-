@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
-public class WolfCage implements AnimalCage {
+public class WolfCage implements AnimalCage<Wolf> {
     private int countWolves;
     private int garbageVolume;
     protected static final int MAX_GARBAGE = 50;
@@ -30,7 +30,7 @@ public class WolfCage implements AnimalCage {
     }
 
     @Override
-    public void addAnimalToCage(Animal wolf) {
+    public void addAnimalToCage(Wolf wolf) {
         wolves.add((Wolf) wolf);
         countWolves++;
         garbageVolume += 2;
