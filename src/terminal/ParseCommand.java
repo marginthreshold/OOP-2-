@@ -24,7 +24,6 @@ public class ParseCommand implements CommandParser {
 
     @Override
     public Command parseCommand(List<Integer> parser) {
-        Command newCommandParameters = new Command(parser);
-        return newCommandParameters;
+        return new Command(parser);
     }
 }

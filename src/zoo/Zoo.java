@@ -46,5 +46,12 @@ public class Zoo {
         this.snakesCage.addAnimalToCage(snake);
     }
 
-
+    @Override
+    public String toString() {
+        return "Zoo{" +
+                "wolvesCage=" + wolvesCage +"\n"+
+                ", lionsCage=" + lionsCage +"\n"+
+                ", snakesCage=" + snakesCage +
+                '}';
+    }
 }

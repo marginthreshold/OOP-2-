@@ -22,7 +22,7 @@ import static factory.WolvesFactory.wolvesCollection;
 
 public class Main {
     public static void main(String[] args) {
-        List<Lion> lions = lionsCollection(10);
+        List<Lion> lions = lionsCollection(2);
         LionCage lionsInCage = new LionCage(lions);
 //        System.out.println(lionsInCage);
 
@@ -32,13 +32,13 @@ public class Main {
 //        lionsInCage.sortByLionMane();
 //        System.out.println(lionsInCage);
 
-        List<Snake> snakes = snakesCollection(10);
+        List<Snake> snakes = snakesCollection(2);
         SnakeCage snakesInCage = new SnakeCage(snakes);
         snakesInCage.sortSnakes();
         System.out.println(snakesInCage);
 
 
-        List<Wolf> wolves = wolvesCollection(10);
+        List<Wolf> wolves = wolvesCollection(2);
         WolfCage wolvesInCage = new WolfCage(wolves);
 //        System.out.println(wolvesInCage);
 
@@ -51,23 +51,8 @@ public class Main {
 //        sortAnimalByAge(wolves);
 
         Zoo zoo = new Zoo(lionsInCage, wolvesInCage, snakesInCage);
-        CommandParser parseCommand = new ParseCommand();
-        TerminalReader terminalReader = TerminalReader.newTerminalReader(parseCommand);
+        TerminalReader terminalReader = TerminalReader.newTerminalReader(new ParseCommand(),zoo);
         terminalReader.endless();
-        terminalReader.getTerminalCommand().chooseCommandExecutable(zoo);
-
-        CommandExecutableFactory commandExecutableFactory = new CommandExecutableFactory();
-        CommandExecutable commandExecutable = commandExecutableFactory.createExecutable(zoo,terminalReader.getTerminalCommand());
-
-        commandExecutable.execute();
-
-        lionsInCage.sortLions();
-        snakesInCage.sortSnakes();
-        wolvesInCage.sortWolves();
-        System.out.println(lionsInCage);
-        System.out.println(snakesInCage);
-        System.out.println(wolvesInCage);
-
 
     }
 }

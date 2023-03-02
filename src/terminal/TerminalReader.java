@@ -1,16 +1,14 @@
 package terminal;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import factory.CommandExecutableFactory;
+import zoo.Zoo;
 
-import static terminal.CommandMenu.*;
-import static terminal.ExceptionMessage.menuExceptionMessage;
-import static terminal.ParseCommand.parseToInt;
+import static terminal.MenuExecutable.callMenu;
 
 public class TerminalReader {
     private static TerminalReader terminalReader;
     private CommandParser commandParser;
+    private Zoo zoo;
 
     private Command terminalCommand;
 
@@ -18,52 +16,23 @@ public class TerminalReader {
         this.commandParser = commandParser;
     }
 
-    public static TerminalReader newTerminalReader(CommandParser commandParser) {
+    public static TerminalReader newTerminalReader(CommandParser commandParser, Zoo zoo) {
         if (terminalReader == null) {
             terminalReader = new TerminalReader(commandParser);
         }
+        terminalReader.zoo = zoo;
         return terminalReader;
     }
 
-    public Command getTerminalCommand() {
-        return terminalCommand;
-    }
 
     public void endless() {
-        Scanner sc = new Scanner(System.in);
-        int userCommandAddDel = 0;
-        int chosenAnimal = 0;
-        int additionalParameter = 0;
-        List<Integer> comandParameters = new ArrayList<Integer>();
-
-        while (userCommandAddDel!=3) {
-            chooseAddDelMenu();
-            userCommandAddDel = parseToInt(sc.next());
-            if (userCommandAddDel>2) {
-                menuExceptionMessage();
-                System.exit(1);
-            }
-            chooseAnimalMenu();
-            chosenAnimal = parseToInt(sc.next());
-            comandParameters.add(chosenAnimal);
-            comandParameters.add(userCommandAddDel);
-            requestAdditionalParameterMenu(chosenAnimal);
-            additionalParameter = parseToInt(sc.next());
-            comandParameters.add(additionalParameter);
-
-            if (userCommandAddDel == 1) {
-                requestAnimalAgeMenu();
-                comandParameters.add(parseToInt(sc.next()));
-                requestAnimalWeightMenu();
-                comandParameters.add(parseToInt(sc.next()));
-                requestAnimalCountLimbsMenu();
-                comandParameters.add(parseToInt(sc.next()));
-
-            }
-            userCommandAddDel=3;
+        while(true) {
+            this.terminalCommand = this.commandParser.parseCommand(callMenu());
+            CommandExecutableFactory commandExecutableFactory = new CommandExecutableFactory();
+            commandExecutableFactory.chooseCommandExecutable(this.zoo, this.terminalCommand);
+            CommandExecutable commandExecutable = commandExecutableFactory.createExecutable(this.zoo, this.terminalCommand);
+            commandExecutable.execute();
+            System.out.println(this.zoo);
         }
-        sc.close();
-        this.terminalCommand = this.commandParser.parseCommand(comandParameters);
-        this.terminalCommand.setAdditionalParameter();
     }
 }
