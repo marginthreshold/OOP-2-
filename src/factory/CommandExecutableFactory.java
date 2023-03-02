@@ -17,12 +17,16 @@ public class CommandExecutableFactory {
         return command.getAnimalExecutable();
     }
 
-    public void chooseCommandExecutable(Zoo zoo,Command command) {
-        int age = command.getCommandParameters().get(3);
-        int weight = command.getCommandParameters().get(4);
-        int countLimbs = command.getCommandParameters().get(5);
+    public void chooseCommandExecutable(Zoo zoo, Command command) {
+        int age = 0, weight = 0, countLimbs = 0;
         int additionalParameter = command.getCommandParameters().get(2);
-        switch (command.getCommandParameters().get(0) * 10 + command.getCommandParameters().get(1)) {
+        int check = command.getCommandParameters().get(0) * 10 + command.getCommandParameters().get(1);
+        if (command.getCommandParameters().get(1) == 1) {
+            age = command.getCommandParameters().get(3);
+            weight = command.getCommandParameters().get(4);
+            countLimbs = command.getCommandParameters().get(5);
+        }
+        switch (check) {
             case 11:
                 command.setAnimalExecutable(new CreateLionExecutable(zoo, new Lion(age, weight, countLimbs, additionalParameter)));
                 break;
@@ -41,6 +45,7 @@ public class CommandExecutableFactory {
             case 32:
                 command.setAnimalExecutable(new DeleteSnakeExecutable(zoo, additionalParameter));
                 break;
+
         }
     }
 
