@@ -10,6 +10,10 @@ public class Wolf extends Animal implements Comparable<Wolf> {
         this.angry = angry;
     }
 
+    public void setAngry(int angry) {
+        this.angry = angry;
+    }
+
     @Override
     public String toString() {
         return "Wolf: " +
@@ -40,4 +44,7 @@ public class Wolf extends Animal implements Comparable<Wolf> {
         return 0;
     }
 
+    public int getAngry() {
+        return angry;
+    }
 }

@@ -1,21 +1,23 @@
 package cage;
 
 
+import animals.Lion;
 import animals.Snake;
 import animals.SnakeComparator;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Random;
 
-public class SnakeCage implements AnimalCage<Snake>{
+public class SnakeCage implements AnimalCage<Snake> {
 
     private int countSnakes;
     private int garbageVolume;
-    private ArrayList<Snake> snakes;
+    private List<Snake> snakes;
     protected static final int MAX_GARBAGE = 30;
 
-    public SnakeCage(ArrayList<Snake> snakes) {
+    public SnakeCage(List<Snake> snakes) {
         this.snakes = snakes;
         countSnakes = snakes.size();
         garbageVolume = this.countSnakes;
@@ -49,7 +51,8 @@ public class SnakeCage implements AnimalCage<Snake>{
             System.out.println("Пока еще чисто");
         }
     }
-    public ArrayList<Snake> getSnakes() {
+
+    public List<Snake> getSnakes() {
         snakes = this.snakes;
         return snakes;
     }
@@ -68,12 +71,33 @@ public class SnakeCage implements AnimalCage<Snake>{
             return randomSnake;
         }
     }
-    public void sortSnakes(){
+
+    public void sortSnakes() {
         Collections.sort(snakes);
     }
 
-    public void sortByBodyLength(){
+    public void sortByBodyLength() {
         Collections.sort(snakes, new SnakeComparator());
+    }
+
+    @Override
+    public Snake getChosenAnimal(int snakeLength) {
+        Snake findLSnakeByBL;
+        int tempBL = -1;
+        for (int i = 0; i < this.snakes.size(); i++) {
+            if (this.snakes.get(i).getBodyLength() == snakeLength) {
+                tempBL = i;
+                break;
+            }
+        }
+        if (tempBL == -1) {
+            System.out.println("Змеи такой длины нет в клетке");
+            return null;
+        } else {
+            findLSnakeByBL = snakes.get(tempBL);
+            snakes.remove(tempBL);
+            return findLSnakeByBL;
+        }
     }
 
 }

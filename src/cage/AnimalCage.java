@@ -12,6 +12,7 @@ public interface AnimalCage<T extends Animal> {
 
     void cleanCage();
 
-    Animal getAnimalFromCage();
+    T getAnimalFromCage();
+    T getChosenAnimal(int animalParameter);
 
 }

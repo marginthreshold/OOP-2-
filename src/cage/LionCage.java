@@ -7,16 +7,17 @@ import cage.AnimalCage;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Random;
 
 public class LionCage implements AnimalCage<Lion> {
     private int countLions;
     private int garbageVolume;
-    private ArrayList<Lion> lions;
+    private List<Lion> lions;
     protected static final int MAX_GARBAGE = 70;
 
 
-    public LionCage(ArrayList<Lion> lions) {
+    public LionCage(List<Lion> lions) {
         this.lions = lions;
         countLions = lions.size();
         garbageVolume = this.countLions * 3;
@@ -51,7 +52,7 @@ public class LionCage implements AnimalCage<Lion> {
         }
     }
 
-    public ArrayList<Lion> getLions() {
+    public List<Lion> getLions() {
         lions = this.lions;
         return lions;
     }
@@ -70,11 +71,32 @@ public class LionCage implements AnimalCage<Lion> {
             return randomLion;
         }
     }
-    public void sortLions(){
+
+    public void sortLions() {
         Collections.sort(lions);
     }
 
-    public void sortByLionMane(){
+    public void sortByLionMane() {
         Collections.sort(lions, new LionComparator());
+    }
+
+    @Override
+    public Lion getChosenAnimal(int lionMane) {
+        Lion findLionByMane;
+        int tempMane=-1;
+            for (int i = 0; i < this.lions.size(); i++) {
+                if (this.lions.get(i).getManeVolume() == lionMane) {
+                    tempMane = i;
+                    break;
+                }
+            }
+        if (tempMane==-1) {
+            System.out.println("Льва с такой гривой нет в клетке");
+            return null;
+        }  else {
+            findLionByMane=lions.get(tempMane);
+            lions.remove(tempMane);
+            return findLionByMane;
+        }
     }
 }

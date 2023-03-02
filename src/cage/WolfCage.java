@@ -1,13 +1,11 @@
 package cage;
 
-import animals.Animal;
-import animals.LionComparator;
-import animals.Wolf;
-import animals.WolfComparator;
+import animals.*;
 import cage.AnimalCage;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Random;
 
 public class WolfCage implements AnimalCage<Wolf> {
@@ -15,9 +13,9 @@ public class WolfCage implements AnimalCage<Wolf> {
     private int garbageVolume;
     protected static final int MAX_GARBAGE = 50;
 
-    private ArrayList<Wolf> wolves;
+    private List<Wolf> wolves;
 
-    public WolfCage(ArrayList<Wolf> wolves) {
+    public WolfCage(List<Wolf> wolves) {
         this.wolves = wolves;
         countWolves = wolves.size();
         garbageVolume = countWolves * 2;
@@ -74,5 +72,23 @@ public class WolfCage implements AnimalCage<Wolf> {
     public void sortByAgeAndWeight(){
         Collections.sort(wolves, new WolfComparator());
     }
-
+    @Override
+    public Wolf getChosenAnimal(int wolfAngry) {
+        Wolf findLionByAngry;
+        int tempAngry=-1;
+        for (int i = 0; i < this.wolves.size(); i++) {
+            if (this.wolves.get(i).getAngry() == wolfAngry) {
+                tempAngry = i;
+                break;
+            }
+        }
+        if (tempAngry==-1) {
+            System.out.println("Такого злого волка нет в клетке");
+            return null;
+        }  else {
+            findLionByAngry=wolves.get(tempAngry);
+            wolves.remove(tempAngry);
+            return findLionByAngry;
+        }
+    }
 }

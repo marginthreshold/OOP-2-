@@ -18,6 +18,14 @@ public class Snake extends Animal implements Comparable<Snake> {
         this.bodyLength = bodyLength;
     }
 
+    @Override
+    public String toString() {
+        return "Snake:" +
+                "bodyLength=" + bodyLength +
+                ", age=" + age +
+                ", weight=" + weight +
+                ", countLimbs=" + countLimbs;
+    }
 
     @Override
     public String getType() {
