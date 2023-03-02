@@ -30,7 +30,6 @@ public class Command {
     }
 
 
-
     public void setAdditionalParameter() {
         this.additionalParameter = commandParameters.get(2);
     }

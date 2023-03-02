@@ -35,30 +35,33 @@ public class TerminalReader {
         int chosenAnimal = 0;
         int additionalParameter = 0;
         List<Integer> comandParameters = new ArrayList<Integer>();
-            try {
-                chooseAddDelMenu();
-                userCommandAddDel = parseToInt(sc.next());
-                chooseAnimalMenu();
-                chosenAnimal = parseToInt(sc.next());
-                comandParameters.add(chosenAnimal);
-                comandParameters.add(userCommandAddDel);
-                requestAdditionalParameterMenu(chosenAnimal);
-                additionalParameter = parseToInt(sc.next());
-                comandParameters.add(additionalParameter);
 
-                if (userCommandAddDel == 1) {
-                    requestAnimalAgeMenu();
-                    comandParameters.add(parseToInt(sc.next()));
-                    requestAnimalWeightMenu();
-                    comandParameters.add(parseToInt(sc.next()));
-                    requestAnimalCountLimbsMenu();
-                    comandParameters.add(parseToInt(sc.next()));
-
-                }
-
-            } catch (Exception e) {
+        while (userCommandAddDel!=3) {
+            chooseAddDelMenu();
+            userCommandAddDel = parseToInt(sc.next());
+            if (userCommandAddDel>2) {
                 menuExceptionMessage();
+                System.exit(1);
             }
+            chooseAnimalMenu();
+            chosenAnimal = parseToInt(sc.next());
+            comandParameters.add(chosenAnimal);
+            comandParameters.add(userCommandAddDel);
+            requestAdditionalParameterMenu(chosenAnimal);
+            additionalParameter = parseToInt(sc.next());
+            comandParameters.add(additionalParameter);
+
+            if (userCommandAddDel == 1) {
+                requestAnimalAgeMenu();
+                comandParameters.add(parseToInt(sc.next()));
+                requestAnimalWeightMenu();
+                comandParameters.add(parseToInt(sc.next()));
+                requestAnimalCountLimbsMenu();
+                comandParameters.add(parseToInt(sc.next()));
+
+            }
+            userCommandAddDel=3;
+        }
         sc.close();
         this.terminalCommand = this.commandParser.parseCommand(comandParameters);
         this.terminalCommand.setAdditionalParameter();
