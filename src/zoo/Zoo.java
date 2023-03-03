@@ -1,10 +1,9 @@
 package zoo;
 
-import animals.Animal;
 import animals.Lion;
 import animals.Snake;
 import animals.Wolf;
-import cage.AnimalCage;
+
 import cage.LionCage;
 import cage.SnakeCage;
 import cage.WolfCage;
@@ -22,28 +21,35 @@ public class Zoo {
     }
 
     public Lion takeOffLion(int lionMane){
+        System.out.println("Из зоопарка из клетки со львами удален лев с гривой"+" "+lionMane+"\n");
         return this.lionsCage.getChosenAnimal(lionMane);
     }
 
     public Wolf takeOffWolf(int wolfAngry){
+        System.out.println("Из зоопарка из клетки с волками удален волк с уровнем злости"+" "+wolfAngry+"\n");
         return this.wolvesCage.getChosenAnimal(wolfAngry);
+
     }
 
     public Snake takeOffSnake(int snakeLength){
+        System.out.println("Из зоопарка из клетки со змеями удалена змея с длиной тела"+" "+snakeLength+"\n");
         return this.snakesCage.getChosenAnimal(snakeLength);
     }
 
 
     public void addLion(Lion lion){
         this.lionsCage.addAnimalToCage(lion);
+        System.out.println("В зоопарк в клетку со львами добавлен"+" "+lion+"\n");
     }
 
     public void addWolf(Wolf wolf){
         this.wolvesCage.addAnimalToCage(wolf);
+        System.out.println("В зоопарк в клетку с волками добавлен"+" "+wolf+"\n");
     }
 
     public void addSnake(Snake snake){
         this.snakesCage.addAnimalToCage(snake);
+        System.out.println("В зоопарк в клетку со змеями добавлен"+" "+snake+"\n");
     }
 
     @Override
