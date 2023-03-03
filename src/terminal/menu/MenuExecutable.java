@@ -21,6 +21,7 @@ public class MenuExecutable {
             int userCommandAddDel = parseToInt(sc.next());
             if (userCommandAddDel > 2) {
                 menuExceptionMessage();
+                sc.close();
                 System.exit(1);
             }
             chooseAnimalMenu();
