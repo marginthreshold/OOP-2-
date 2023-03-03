@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import static terminal.menu.CommandMenu.*;
 import static terminal.menu.CommandMenu.requestAnimalCountLimbsMenu;
+import static terminal.menu.ReRequestMenuLine.returnCorrectMenu;
 import static terminal.messages.ExceptionMessage.menuExceptionMessage;
 import static terminal.command.ParseCommand.parseToInt;
 
@@ -16,16 +17,15 @@ public class MenuExecutable {
 
         List<Integer> commandParameters = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
-
             chooseAddDelMenu();
-            int userCommandAddDel = parseToInt(sc.next());
+            int userCommandAddDel = returnCorrectMenu(parseToInt(sc.next()),3);
             if (userCommandAddDel > 2) {
                 menuExceptionMessage();
                 sc.close();
                 System.exit(1);
             }
             chooseAnimalMenu();
-            int chosenAnimal = parseToInt(sc.next());
+            int chosenAnimal = returnCorrectMenu(parseToInt(sc.next()),3);
             commandParameters.add(chosenAnimal);
             commandParameters.add(userCommandAddDel);
             requestAdditionalParameterMenu(chosenAnimal);

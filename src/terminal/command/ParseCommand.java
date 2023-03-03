@@ -8,13 +8,13 @@ public class ParseCommand implements CommandParser {
 
     public static Integer parseToInt(String input) {
         Integer result = null;
-
             try {
                 Integer.parseInt(input);
                 result = Integer.parseInt(input);
             } catch (Exception e) {
                 parsingExceptionMessage();
-                System.exit(1);
+                result=-1;
+                //System.exit(1);
             }
         return result;
     }
