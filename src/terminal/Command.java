@@ -1,12 +1,6 @@
 package terminal;
 
 
-import animals.Animal;
-import animals.Lion;
-import animals.Snake;
-import animals.Wolf;
-import zoo.Zoo;
-
 import java.util.List;
 
 

@@ -14,7 +14,7 @@ public class MenuExecutable {
 
     public static List<Integer> callMenu() {
 
-        List<Integer> comandParameters = new ArrayList<Integer>();
+        List<Integer> commandParameters = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
 
             chooseAddDelMenu();
@@ -25,21 +25,21 @@ public class MenuExecutable {
             }
             chooseAnimalMenu();
             int chosenAnimal = parseToInt(sc.next());
-            comandParameters.add(chosenAnimal);
-            comandParameters.add(userCommandAddDel);
+            commandParameters.add(chosenAnimal);
+            commandParameters.add(userCommandAddDel);
             requestAdditionalParameterMenu(chosenAnimal);
-            comandParameters.add(parseToInt(sc.next()));
+            commandParameters.add(parseToInt(sc.next()));
 
             if (userCommandAddDel == 1) {
                 requestAnimalAgeMenu();
-                comandParameters.add(parseToInt(sc.next()));
+                commandParameters.add(parseToInt(sc.next()));
                 requestAnimalWeightMenu();
-                comandParameters.add(parseToInt(sc.next()));
+                commandParameters.add(parseToInt(sc.next()));
                 requestAnimalCountLimbsMenu();
-                comandParameters.add(parseToInt(sc.next()));
+                commandParameters.add(parseToInt(sc.next()));
 
             }
-        sc.close();
-        return comandParameters;
+
+        return commandParameters;
     }
 }

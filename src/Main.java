@@ -4,10 +4,6 @@ import cage.LionCage;
 import animals.Wolf;
 import cage.SnakeCage;
 import cage.WolfCage;
-
-import factory.CommandExecutableFactory;
-import terminal.CommandExecutable;
-import terminal.CommandParser;
 import terminal.ParseCommand;
 import terminal.TerminalReader;
 import zoo.Zoo;
