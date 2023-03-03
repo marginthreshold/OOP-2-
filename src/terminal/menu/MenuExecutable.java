@@ -4,9 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import static terminal.command.ParseCommand.returnCorrectMenu;
 import static terminal.menu.CommandMenu.*;
 import static terminal.menu.CommandMenu.requestAnimalCountLimbsMenu;
-import static terminal.menu.ReRequestMenuLine.returnCorrectMenu;
+
 import static terminal.messages.ExceptionMessage.menuExceptionMessage;
 import static terminal.command.ParseCommand.parseToInt;
 
@@ -29,15 +30,15 @@ public class MenuExecutable {
             commandParameters.add(chosenAnimal);
             commandParameters.add(userCommandAddDel);
             requestAdditionalParameterMenu(chosenAnimal);
-            commandParameters.add(parseToInt(sc.next()));
+            commandParameters.add(returnCorrectMenu(parseToInt(sc.next()),10));
 
             if (userCommandAddDel == 1) {
                 requestAnimalAgeMenu();
-                commandParameters.add(parseToInt(sc.next()));
+                commandParameters.add(returnCorrectMenu(parseToInt(sc.next()),70));
                 requestAnimalWeightMenu();
-                commandParameters.add(parseToInt(sc.next()));
+                commandParameters.add(returnCorrectMenu(parseToInt(sc.next()),400));
                 requestAnimalCountLimbsMenu();
-                commandParameters.add(parseToInt(sc.next()));
+                commandParameters.add(returnCorrectMenu(parseToInt(sc.next()),4));
 
             }
 
