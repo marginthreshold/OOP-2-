@@ -3,9 +3,10 @@ package factory;
 import animals.Lion;
 import animals.Snake;
 import animals.Wolf;
-import terminal.*;
 
 
+import terminal.command.Command;
+import terminal.executables.*;
 import zoo.Zoo;
 
 

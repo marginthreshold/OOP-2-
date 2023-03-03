@@ -1,4 +1,4 @@
-package terminal;
+package terminal.executables;
 
 import animals.Animal;
 

@@ -1,9 +1,12 @@
 package terminal;
 
 import factory.CommandExecutableFactory;
+import terminal.command.Command;
+import terminal.command.CommandParser;
+import terminal.executables.CommandExecutable;
 import zoo.Zoo;
 
-import static terminal.MenuExecutable.callMenu;
+import static terminal.menu.MenuExecutable.callMenu;
 
 public class TerminalReader {
     private static TerminalReader terminalReader;

@@ -1,13 +1,13 @@
-package terminal;
+package terminal.menu;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import static terminal.CommandMenu.*;
-import static terminal.CommandMenu.requestAnimalCountLimbsMenu;
-import static terminal.ExceptionMessage.menuExceptionMessage;
-import static terminal.ParseCommand.parseToInt;
+import static terminal.menu.CommandMenu.*;
+import static terminal.menu.CommandMenu.requestAnimalCountLimbsMenu;
+import static terminal.messages.ExceptionMessage.menuExceptionMessage;
+import static terminal.command.ParseCommand.parseToInt;
 
 public class MenuExecutable {
 

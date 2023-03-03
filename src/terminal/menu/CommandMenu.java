@@ -1,4 +1,4 @@
-package terminal;
+package terminal.menu;
 
 
 public class CommandMenu {

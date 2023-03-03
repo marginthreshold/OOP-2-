@@ -1,5 +1,7 @@
-package terminal;
+package terminal.command;
 
+
+import terminal.executables.CommandExecutable;
 
 import java.util.List;
 

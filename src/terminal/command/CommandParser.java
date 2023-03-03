@@ -1,6 +1,5 @@
-package terminal;
+package terminal.command;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public interface CommandParser{

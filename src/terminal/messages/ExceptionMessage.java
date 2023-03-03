@@ -1,4 +1,4 @@
-package terminal;
+package terminal.messages;
 
 public class ExceptionMessage {
     public static void parsingExceptionMessage() {

@@ -4,7 +4,7 @@ import cage.LionCage;
 import animals.Wolf;
 import cage.SnakeCage;
 import cage.WolfCage;
-import terminal.ParseCommand;
+import terminal.command.ParseCommand;
 import terminal.TerminalReader;
 import zoo.Zoo;
 

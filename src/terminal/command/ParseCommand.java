@@ -1,8 +1,8 @@
-package terminal;
+package terminal.command;
 
 import java.util.List;
 
-import static terminal.ExceptionMessage.parsingExceptionMessage;
+import static terminal.messages.ExceptionMessage.parsingExceptionMessage;
 
 public class ParseCommand implements CommandParser {
 
