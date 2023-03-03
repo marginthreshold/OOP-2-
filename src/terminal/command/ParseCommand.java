@@ -8,17 +8,14 @@ public class ParseCommand implements CommandParser {
 
     public static Integer parseToInt(String input) {
         Integer result = null;
-        int check = -1;
-        do {
 
             try {
                 Integer.parseInt(input);
                 result = Integer.parseInt(input);
-                check = 1;
             } catch (Exception e) {
                 parsingExceptionMessage();
+                System.exit(1);
             }
-        } while (check != 1);
         return result;
     }
 
