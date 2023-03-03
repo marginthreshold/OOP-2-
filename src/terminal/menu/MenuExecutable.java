@@ -20,7 +20,7 @@ public class MenuExecutable {
         Scanner sc = new Scanner(System.in);
             chooseAddDelMenu();
             int userCommandAddDel = returnCorrectMenu(parseToInt(sc.next()),3);
-            if (userCommandAddDel > 2) {
+            if (userCommandAddDel == 3) {
                 menuExceptionMessage();
                 sc.close();
                 System.exit(1);
