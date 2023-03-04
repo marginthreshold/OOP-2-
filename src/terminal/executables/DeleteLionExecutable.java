@@ -1,6 +1,6 @@
 package terminal.executables;
 
-import terminal.executables.CommandExecutable;
+import terminal.command.Command;
 import zoo.Zoo;
 
 public class DeleteLionExecutable implements CommandExecutable {
@@ -8,9 +8,9 @@ public class DeleteLionExecutable implements CommandExecutable {
     private Zoo zoo;
     private int lionMane;
 
-    public DeleteLionExecutable(Zoo zoo,int lionMane) {
+    public DeleteLionExecutable(Zoo zoo, Command command) {
         this.zoo = zoo;
-        this.lionMane = lionMane;
+        this.lionMane = command.getCommandParameters().get(2);
     }
 
 

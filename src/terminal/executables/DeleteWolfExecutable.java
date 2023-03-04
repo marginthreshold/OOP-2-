@@ -1,6 +1,6 @@
 package terminal.executables;
 
-import terminal.executables.CommandExecutable;
+import terminal.command.Command;
 import zoo.Zoo;
 
 public class DeleteWolfExecutable implements CommandExecutable {
@@ -8,12 +8,10 @@ public class DeleteWolfExecutable implements CommandExecutable {
         private Zoo zoo;
         private int wolfAngry;
 
-        public DeleteWolfExecutable(Zoo zoo,int wolfAngry) {
+        public DeleteWolfExecutable(Zoo zoo, Command command) {
             this.zoo = zoo;
-            this.wolfAngry = wolfAngry;
+            this.wolfAngry = command.getCommandParameters().get(2);
         }
-
-
 
         @Override
         public void execute() {

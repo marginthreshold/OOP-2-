@@ -1,8 +1,6 @@
-package factory;
+package terminal.factory;
 
 import animals.Snake;
-
-
 import java.util.ArrayList;
 import java.util.List;
 

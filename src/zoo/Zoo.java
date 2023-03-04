@@ -21,18 +21,15 @@ public class Zoo {
     }
 
     public Lion takeOffLion(int lionMane){
-        System.out.println("Из зоопарка из клетки со львами удален лев с гривой"+" "+lionMane+"\n");
         return this.lionsCage.getChosenAnimal(lionMane);
     }
 
     public Wolf takeOffWolf(int wolfAngry){
-        System.out.println("Из зоопарка из клетки с волками удален волк с уровнем злости"+" "+wolfAngry+"\n");
         return this.wolvesCage.getChosenAnimal(wolfAngry);
 
     }
 
     public Snake takeOffSnake(int snakeLength){
-        System.out.println("Из зоопарка из клетки со змеями удалена змея с длиной тела"+" "+snakeLength+"\n");
         return this.snakesCage.getChosenAnimal(snakeLength);
     }
 

@@ -1,20 +1,17 @@
 package terminal;
 
-import factory.CommandExecutableFactory;
-import factory.CommandExecutableFactoryImpl;
+import terminal.factory.CommandExecutableFactory;
+import terminal.factory.CommandExecutableFactoryImpl;
 import terminal.command.Command;
 import terminal.command.CommandParser;
-import terminal.executables.CommandExecutable;
 import zoo.Zoo;
 
-import static terminal.menu.MenuExecutable.callMenu;
+import static terminal.menu.FillParametersFromMenu.callMenu;
 
 public class TerminalReader {
     private static TerminalReader terminalReader;
     private CommandParser commandParser;
     private Zoo zoo;
-    private CommandExecutableFactory commandExecutableFactory;
-    private Command terminalCommand;
 
     private TerminalReader(CommandParser commandParser) {
         this.commandParser = commandParser;
@@ -25,17 +22,16 @@ public class TerminalReader {
             terminalReader = new TerminalReader(commandParser);
         }
         terminalReader.zoo = zoo;
-        terminalReader.commandExecutableFactory =new CommandExecutableFactoryImpl();
         return terminalReader;
     }
 
 
     public void endless() {
         while(true) {
-            this.terminalCommand = this.commandParser.parseCommand(callMenu());
-            this.commandExecutableFactory.chooseCommandExecutable(this.zoo, this.terminalCommand);
-            CommandExecutable commandExecutable = commandExecutableFactory.createExecutable(this.zoo, this.terminalCommand);
-            commandExecutable.execute();
+            Command terminalCommand = this.commandParser.parseCommand(callMenu());
+            CommandExecutableFactory commandExecutableFactory= new CommandExecutableFactoryImpl();
+            commandExecutableFactory.createCommandExecutable(this.zoo, terminalCommand);
+            commandExecutableFactory.getCommandExecutable().execute();
             System.out.println(this.zoo);
         }
     }

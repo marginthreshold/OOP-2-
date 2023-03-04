@@ -88,6 +88,7 @@ public class WolfCage implements AnimalCage<Wolf> {
         }  else {
             findLionByAngry=wolves.get(tempAngry);
             wolves.remove(tempAngry);
+            System.out.println("Из клетки с волками удален волк с уровнем злости"+" "+wolfAngry+"\n");
             return findLionByAngry;
         }
     }

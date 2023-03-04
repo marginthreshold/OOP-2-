@@ -1,6 +1,6 @@
 package terminal.executables;
 
-import terminal.executables.CommandExecutable;
+import terminal.command.Command;
 import zoo.Zoo;
 
 public class DeleteSnakeExecutable implements CommandExecutable {
@@ -8,9 +8,9 @@ public class DeleteSnakeExecutable implements CommandExecutable {
         private Zoo zoo;
         private int bodyLength;
 
-        public DeleteSnakeExecutable(Zoo zoo,int bodyLength) {
+        public DeleteSnakeExecutable(Zoo zoo, Command command) {
             this.zoo = zoo;
-            this.bodyLength = bodyLength;
+            this.bodyLength = command.getCommandParameters().get(2);
         }
 
 

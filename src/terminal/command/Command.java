@@ -1,31 +1,23 @@
 package terminal.command;
 
-
-import terminal.executables.CommandExecutable;
-
 import java.util.List;
 
-
 public class Command {
-    private CommandExecutable animalExecutable;
-
 
     private List<Integer> commandParameters;
 
+    private int parameterAddDellAnimal;
     public Command(List<Integer> commandParameters) {
         this.commandParameters = commandParameters;
+        this.parameterAddDellAnimal=commandParameters.get(0) * 10 + commandParameters.get(1);
     }
 
     public List<Integer> getCommandParameters() {
         return commandParameters;
     }
 
-    public CommandExecutable getAnimalExecutable() {
-        return animalExecutable;
-    }
-
-    public void setAnimalExecutable(CommandExecutable animalExecutable) {
-        this.animalExecutable = animalExecutable;
+    public int getParameterAddDellAnimal() {
+        return parameterAddDellAnimal;
     }
 }
 

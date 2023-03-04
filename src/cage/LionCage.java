@@ -96,6 +96,7 @@ public class LionCage implements AnimalCage<Lion> {
         }  else {
             findLionByMane=lions.get(tempMane);
             lions.remove(tempMane);
+            System.out.println("Из клетки со львами удален лев с гривой"+" "+lionMane+"\n");
             return findLionByMane;
         }
     }

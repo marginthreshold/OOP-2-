@@ -96,6 +96,7 @@ public class SnakeCage implements AnimalCage<Snake> {
         } else {
             findLSnakeByBL = snakes.get(tempBL);
             snakes.remove(tempBL);
+            System.out.println("Из клетки со змеями удалена змея с длиной тела"+" "+snakeLength+"\n");
             return findLSnakeByBL;
         }
     }
