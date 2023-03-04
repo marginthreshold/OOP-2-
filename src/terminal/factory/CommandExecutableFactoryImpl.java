@@ -14,7 +14,7 @@ public class CommandExecutableFactoryImpl implements CommandExecutableFactory {
 
     public void createCommandExecutable(Zoo zoo, Command command) {
 
-        switch (command.getCommandParameters().get(0) * 10 + command.getCommandParameters().get(1)) {
+        switch (command.getParameterAddDellAnimal()) {
             case 11:
                 this.commandExecutable = new CreateLionExecutable(zoo, command);
                 break;
