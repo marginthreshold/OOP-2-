@@ -13,15 +13,15 @@ public class TerminalReader {
     private CommandParser commandParser;
     private Zoo zoo;
 
-    private TerminalReader(CommandParser commandParser) {
+    private TerminalReader(CommandParser commandParser,Zoo zoo) {
         this.commandParser = commandParser;
+        this.zoo = zoo;
     }
 
     public static TerminalReader newTerminalReader(CommandParser commandParser, Zoo zoo) {
         if (terminalReader == null) {
-            terminalReader = new TerminalReader(commandParser);
+            terminalReader = new TerminalReader(commandParser,zoo);
         }
-        terminalReader.zoo = zoo;
         return terminalReader;
     }
 
