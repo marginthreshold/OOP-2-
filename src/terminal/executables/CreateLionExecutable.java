@@ -11,8 +11,7 @@ public class CreateLionExecutable implements CommandExecutable {
 
     public CreateLionExecutable(Zoo zoo, Command command) {
         this.zoo = zoo;
-        this.lion = new Lion(command.getCommandParameters().get(3), command.getCommandParameters().get(4),
-                command.getCommandParameters().get(5), command.getCommandParameters().get(2));
+        this.lion = new Lion(command);
     }
 
     @Override

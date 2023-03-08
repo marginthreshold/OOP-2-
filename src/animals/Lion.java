@@ -1,5 +1,7 @@
 package animals;
 
+import terminal.command.Command;
+
 public class Lion extends Animal implements Comparable<Lion>{
     private int maneVolume;
     protected static final int MAX_WEIGHTS = 300;
@@ -10,7 +12,11 @@ public class Lion extends Animal implements Comparable<Lion>{
         super(age, weight, countLimbs);
         this.maneVolume = maneVolume;
     }
-
+    public Lion(Command command){
+        super(command.getCommandParameters().get(3), command.getCommandParameters().get(4),
+                command.getCommandParameters().get(5));
+        this.maneVolume = command.getCommandParameters().get(2);
+    }
 
     public int getManeVolume() {
         return maneVolume;

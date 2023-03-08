@@ -1,5 +1,7 @@
 package animals;
 
+import terminal.command.Command;
+
 public class Snake extends Animal implements Comparable<Snake> {
     private int bodyLength;
     protected static final int MAX_WEIGHTS = 10;
@@ -8,6 +10,11 @@ public class Snake extends Animal implements Comparable<Snake> {
     public Snake(int age, int weight, int countLimbs, int bodyLength) {
         super(age, weight, countLimbs);
         this.bodyLength = bodyLength;
+    }
+    public Snake(Command command){
+        super(command.getCommandParameters().get(3), command.getCommandParameters().get(4),
+                command.getCommandParameters().get(5));
+        this.bodyLength = command.getCommandParameters().get(2);
     }
 
     public int getBodyLength() {

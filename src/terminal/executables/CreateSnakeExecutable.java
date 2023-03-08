@@ -14,8 +14,7 @@ public class CreateSnakeExecutable implements CommandExecutable{
 
         public CreateSnakeExecutable(Zoo zoo, Command command) {
             this.zoo = zoo;
-            this.snake = new Snake(command.getCommandParameters().get(3), command.getCommandParameters().get(4),
-                    command.getCommandParameters().get(5), command.getCommandParameters().get(2));
+            this.snake = new Snake(command);
         }
 
         @Override
